@@ -1,0 +1,9 @@
+services:
+  mini-danbooru:
+    build: .
+    container_name: mini-danbooru-target
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    restart: unless-stopped
