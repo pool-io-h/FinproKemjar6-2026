@@ -8,43 +8,59 @@
 // ==============================================================================
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'pages/gallery.php';
+
+// Menentukan judul halaman dan status tab navigasi
+$activeTab = 'posts';
+$pageTitle = 'Mini-Danbooru A7';
+
+if (strpos($page, 'about') !== false) {
+    $activeTab = 'about';
+    $pageTitle = 'Mini-Danbooru A7 — About and rules';
+} elseif (strpos($page, 'upload') !== false) {
+    $activeTab = 'upload';
+    $pageTitle = 'Mini-Danbooru A7 — Upload';
+} elseif (strpos($page, 'detail') !== false) {
+    $activeTab = 'posts';
+    $pageTitle = 'Mini-Danbooru A7 — Post detail';
+}
 ?>
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-Danbooru Imageboard</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <title><?= htmlspecialchars($pageTitle) ?></title>
+    <!-- Cache-busting link + inline fallback agar CSS selalu termuat sempurna -->
+    <link rel="stylesheet" href="assets/style.css?v=<?= time() ?>">
+    <style>
+        <?php if (file_exists(__DIR__ . '/assets/style.css')) include __DIR__ . '/assets/style.css'; ?>
+    </style>
 </head>
 <body>
 
 <header>
-    <a href="index.php?page=pages/gallery.php" class="logo">Mini-<span>Danbooru</span></a>
-    <nav>
-        <ul>
-            <li><a href="index.php?page=pages/gallery.php" class="<?= (strpos($page, 'gallery') !== false) ? 'active' : '' ?>">Gallery</a></li>
-            <li><a href="index.php?page=pages/about.php" class="<?= (strpos($page, 'about') !== false) ? 'active' : '' ?>">About</a></li>
-            <li><a href="upload.php" class="btn-upload">+ Upload Artwork</a></li>
+    <div class="header-left">
+        <a href="index.php?page=pages/gallery.php" class="brand-title">Mini-Danbooru A7</a>
+        <ul class="nav-links">
+            <li><a href="index.php?page=pages/gallery.php" class="<?= ($activeTab === 'posts') ? 'active' : '' ?>">Posts</a></li>
+            <li><a href="upload.php" class="<?= ($activeTab === 'upload') ? 'active' : '' ?>">Upload</a></li>
+            <li><a href="index.php?page=pages/about.php" class="<?= ($activeTab === 'about') ? 'active' : '' ?>">About</a></li>
         </ul>
-    </nav>
+    </div>
+    <div class="header-right">
+        Community image archive
+    </div>
 </header>
 
-<div class="container">
-    <?php
-    // [VULNERABILITY] Local File Inclusion (LFI)
-    // Parameter $page tidak divalidasi terhadap whitelist maupun dicek traversal "../"
-    if (file_exists($page)) {
-        include($page);
-    } else {
-        echo "<div class='alert alert-danger'>Halaman <code>" . htmlspecialchars($page) . "</code> tidak ditemukan!</div>";
-    }
-    ?>
-</div>
-
-<footer>
-    <p>&copy; 2026 Kelompok A7 - Praktikum Keamanan Jaringan UI</p>
-</footer>
+<?php
+// [VULNERABILITY] Local File Inclusion (LFI)
+// Parameter $page di-include langsung sehingga attacker bisa memasukkan traversal
+if (file_exists($page)) {
+    include($page);
+} else {
+    echo "<div style='padding: 30px;'><div class='alert-box danger'>Error 404: File <code>" . htmlspecialchars($page) . "</code> not found!</div></div>";
+}
+?>
 
 </body>
 </html>

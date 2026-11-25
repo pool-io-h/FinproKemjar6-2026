@@ -1,8 +1,42 @@
 [
-  {
-    "id": 1,
-    "title": "Welcome to Mini-Danbooru",
-    "tags": "welcome, sample, scenery",
-    "filename": "welcome.png"
-  }
+    {
+        "id": 1,
+        "title": "Contoh Artwork",
+        "tags": "scenery, blue_sky, architecture",
+        "filename": "contoh.jpg",
+        "dimensions": "1920\u00d71080",
+        "status": "Public"
+    },
+    {
+        "id": 2,
+        "title": "Mountain View",
+        "tags": "scenery, blue_sky, nature",
+        "filename": "mountain.jpg",
+        "dimensions": "1920\u00d71080",
+        "status": "Public"
+    },
+    {
+        "id": 3,
+        "title": "City Dusk",
+        "tags": "scenery, architecture, sunset",
+        "filename": "city.jpg",
+        "dimensions": "1920\u00d71080",
+        "status": "Public"
+    },
+    {
+        "id": 4,
+        "title": "Blue Horizon",
+        "tags": "scenery, blue_sky, nature",
+        "filename": "horizon.jpg",
+        "dimensions": "1920\u00d71080",
+        "status": "Public"
+    },
+    {
+        "id": 5,
+        "title": "test1",
+        "tags": "scorch",
+        "filename": "downl2oad.jpeg",
+        "dimensions": "194\u00d7259",
+        "status": "Public"
+    }
 ]

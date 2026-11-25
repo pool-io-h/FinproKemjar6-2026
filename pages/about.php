@@ -1,15 +1,21 @@
-<div class="card">
-    <h2>Tentang Mini-Danbooru (Kelompok A7)</h2>
-    <p>Aplikasi web ini merupakan target uji penetrasi (*pentest target*) yang dikembangkan untuk tugas akhir Praktikum Keamanan Jaringan 2026.</p>
-    <br>
-    <h3>Fitur Utama:</h3>
-    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-        <li><strong>Galeri Gambar:</strong> Menampilkan daftar karya yang diunggah oleh pengguna secara dinamis.</li>
-        <li><strong>Modul Upload:</strong> Fasilitas mengunggah karya seni digital.</li>
-        <li><strong>Modular Navigation:</strong> Sistem pemuatan halaman modular menggunakan router dinamis.</li>
+<?php
+// pages/about.php - Halaman Informasi dan Aturan Imageboard (Sesuai Screenshot 4)
+?>
+<div class="about-container">
+    <h1>About Mini-Danbooru A7</h1>
+    <hr class="divider">
+
+    <p>Mini-Danbooru A7 is a lightweight, tag-based community imageboard archive built for Network Security Practicum 2026. It provides a simple way to upload, organize, and browse artwork using descriptive tags.</p>
+
+    <h2>Tagging Guidelines</h2>
+    <ul>
+        <li>Use lowercase letters for all tags.</li>
+        <li>Separate words with underscores, like blue_sky.</li>
+        <li>Separate multiple tags with commas.</li>
     </ul>
-    <br>
-    <div class="alert alert-success">
-        <strong>Pemberitahuan Sistem:</strong> Server berjalan pada lingkungan simulasi laboratorium keamanan.
-    </div>
+
+    <hr class="divider">
+
+    <h2>Supported Formats</h2>
+    <p>JPG, JPEG, PNG, and GIF image files are supported.</p>
 </div>
