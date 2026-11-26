@@ -1,0 +1,16 @@
+services:
+  mini-danbooru-v1:
+    build: .
+    container_name: mini-danbooru-v1-vulnerable
+    ports:
+      - "8081:80"
+    volumes:
+      - ./v1-vulnerable:/var/www/html
+
+  mini-danbooru-v2:
+    build: .
+    container_name: mini-danbooru-v2-remediated
+    ports:
+      - "8082:80"
+    volumes:
+      - ./v2-remediated:/var/www/html

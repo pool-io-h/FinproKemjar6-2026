@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Contoh Artwork",
+    "tags": "scenery, blue_sky, architecture",
+    "filename": "contoh.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Mountain View",
+    "tags": "scenery, blue_sky, nature",
+    "filename": "mountain_view.jpg"
+  },
+  {
+    "id": 3,
+    "title": "City Dusk",
+    "tags": "scenery, architecture, sunset",
+    "filename": "city_dusk.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Blue Horizon",
+    "tags": "scenery, blue_sky, nature",
+    "filename": "blue_horizon.jpg"
+  }
+]
